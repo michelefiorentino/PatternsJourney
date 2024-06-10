@@ -5,6 +5,8 @@ import com.mike.pj.creational.abstractfactory.modern.ModernFurnitureFactory;
 import com.mike.pj.creational.abstractfactory.victorian.VictorianFurnitureFactory;
 import com.mike.pj.creational.factorymethod.LinuxDialog;
 import com.mike.pj.creational.factorymethod.WindowsDialog;
+import com.mike.pj.creational.prototype.Circle;
+import com.mike.pj.creational.prototype.Rectangle;
 
 import java.util.logging.Logger;
 
@@ -15,6 +17,7 @@ public class CreationalMain {
     public static void main(String[] args) {
         factoryMethodMain();
         abstractFactoryMain();
+        prototypeMain();
     }
 
     public static void factoryMethodMain(){
@@ -45,5 +48,28 @@ public class CreationalMain {
         victorianFurnitureFactory.createChair().sitOn();
         victorianFurnitureFactory.createSofa().layDown();
         victorianFurnitureFactory.createTable().placeOn("banana");
+    }
+
+    public static void prototypeMain(){
+        Circle circleA = new Circle();
+        circleA.setX(1);
+        circleA.setY(2);
+        circleA.setColor("red");
+        circleA.setRadius(4);
+
+        Rectangle rectangleA = new Rectangle();
+        rectangleA.setX(2);
+        rectangleA.setY(5);
+        rectangleA.setColor("blue");
+        rectangleA.setHeight(8);
+        rectangleA.setWidth(10);
+
+        logger.info("current circle: " + circleA);
+        Circle circleB = new Circle(circleA);
+        logger.info("copied circle: " + circleB);
+
+        logger.info("current rect: " + rectangleA);
+        Rectangle rectangleB = new Rectangle(rectangleA);
+        logger.info("copied rect: " + rectangleB);
     }
 }
