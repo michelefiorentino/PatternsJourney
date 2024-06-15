@@ -1,4 +1,4 @@
-package com.mike.pj.bootstrapper.creational;
+package com.mike.pj.bootstrapper;
 
 import com.mike.pj.creational.abstractfactory.artdeco.ArtDecoFurnitureFactory;
 import com.mike.pj.creational.abstractfactory.modern.ModernFurnitureFactory;
