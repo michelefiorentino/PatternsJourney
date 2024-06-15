@@ -3,6 +3,7 @@ package com.mike.pj.bootstrapper.creational;
 import com.mike.pj.creational.abstractfactory.artdeco.ArtDecoFurnitureFactory;
 import com.mike.pj.creational.abstractfactory.modern.ModernFurnitureFactory;
 import com.mike.pj.creational.abstractfactory.victorian.VictorianFurnitureFactory;
+import com.mike.pj.creational.builder.Car;
 import com.mike.pj.creational.factorymethod.LinuxDialog;
 import com.mike.pj.creational.factorymethod.WindowsDialog;
 import com.mike.pj.creational.prototype.Circle;
@@ -15,9 +16,10 @@ public class CreationalMain {
     private static final Logger logger = Logger.getLogger(CreationalMain.class.getName());
 
     public static void main(String[] args) {
-        factoryMethodMain();
-        abstractFactoryMain();
-        prototypeMain();
+        //factoryMethodMain();
+        //abstractFactoryMain();
+        //prototypeMain();
+        builderMain();
     }
 
     public static void factoryMethodMain(){
@@ -71,5 +73,16 @@ public class CreationalMain {
         logger.info("current rect: " + rectangleA);
         Rectangle rectangleB = new Rectangle(rectangleA);
         logger.info("copied rect: " + rectangleB);
+    }
+
+    public static void builderMain(){
+        logger.info("Building cars");
+        Car carA = new Car.Builder("FIAT").engine("1.2 Petrol").seats(5).year("2002").color("black").build();
+        Car carB = new Car.Builder("Alfa Romeo").engine("1.3 Multijet").seats(5).year("2012").color("red").build();
+        Car carC = new Car.Builder("DACIA").color("white").year("2017").build();
+
+        logger.info(carA.toString());
+        logger.info(carB.toString());
+        logger.info(carC.toString());
     }
 }
